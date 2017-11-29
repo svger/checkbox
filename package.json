@@ -17,7 +17,7 @@
     "babel-loader": "^7.1.2",
     "cefc-tools": "0.0.4",
     "cefc-ui-cell": "0.0.2",
-    "cefc-ui-icon": "^0.0.4",
+    "cefc-ui-icon": "^0.0.5",
     "cefc-ui-style": "0.0.1",
     "cefc-utils": "0.0.3"
   },

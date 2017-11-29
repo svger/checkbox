@@ -1590,12 +1590,14 @@ cefc-ui-cell@0.0.2:
     react "~16.1.1"
     react-dom "~16.1.1"
 
-cefc-ui-icon@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/cefc-ui-icon/-/cefc-ui-icon-0.0.4.tgz#150806446e93f1750cd0f29d1bf0a5f7ff200c39"
+cefc-ui-icon@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/cefc-ui-icon/-/cefc-ui-icon-0.0.5.tgz#f9f564295b37719d9558198af78857e8ee0ba99b"
   dependencies:
+    cefc-ui-cell "0.0.2"
     cefc-ui-style "~0.0.1"
     classnames "~2.2.5"
+    gulp-replace "^0.6.1"
     prop-types "~15.6.0"
     react "~16.1.1"
     react-dom "~16.1.1"

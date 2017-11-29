@@ -23,16 +23,23 @@ class CheckboxGroup extends Component {
     });
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.children) return true;
-    return !(isEqual(nextProps, this.props) && isEqual(nextState, this.state));
-  }
-
   componentWillReceiveProps(nextProps) {
     nextProps.selects && this.setState({ selects: nextProps.selects });
   }
 
+  arrayRemoveByValue(arr, val) {
+    for (var i = 0; i < arr.length; i++) {
+
+      if (arr[i] == val) {
+        arr.splice(i, 1);
+        break;
+      }
+    }
+  }
+
   change(behavior, props, value) {
+    console.log("change-value", value);
+
     let state = this.state[props];
 
     if (behavior === "push") {
@@ -40,8 +47,11 @@ class CheckboxGroup extends Component {
     }
 
     if (behavior === "splice") {
-      state.shift(value);
+      this.arrayRemoveByValue(state, value);
     }
+
+     console.log("change-state", state);
+
 
     this.setState({ selects: state });
     this.props.onChange && this.props.onChange(state);
@@ -52,15 +62,15 @@ class CheckboxGroup extends Component {
   }
 
   removeSelect(value) {
-    this.change("splice", "selects", this.state.selects.indexOf(value));
+    this.change("splice", "selects", value); //this.state.selects.indexOf(value)
   }
 
-  toggleAll(e) {
+  toggleAll = e => {
     const selects = e.target.checked
       ? this.state.selects.concat(this.unSelects)
       : [];
     this.setState({ selects: selects });
-  }
+  };
 
   handleCheckboxChange(value, e) {
     this[(e.target.checked ? "add" : "remove") + "Select"](value);
@@ -88,6 +98,7 @@ class CheckboxGroup extends Component {
       checkboxes = values.map((value, i) => {
         const checked = selects.indexOf(value) !== -1;
         checked || unSelects.push(value);
+
         return (
           <Checkbox
             key={i}
@@ -134,7 +145,7 @@ class CheckboxGroup extends Component {
               indeterminate={
                 unSelects.length > 0 && unSelects.length < checkboxes.length
               }
-              onChange={::this.toggleAll}
+              onChange={this.toggleAll}
             >
               {toggleAllContent}
             </Checkbox>
