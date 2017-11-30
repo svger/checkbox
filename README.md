@@ -20,7 +20,7 @@
 
 | 属性        | 说明                          | 类型            | 默认值         |
 | --------- | --------------------------- | ------------- | ----------- |
-| prefixCls | 样式前缀，如：`cefc-checkbox`，可用于自定义样式 | String        | `cefc-checkbox` |
+| prefixCls | 样式前缀，如：`cefc-checkbox-group`，可用于自定义样式 | String        | `cefc-checkbox-group` |
 | selects  |  选中的值                        | 	array | 无           |
 | defaultSelects  |  	初始选中的值                      | 	array | 无           |
 | onChange  |  更改选择后的回调，参数为选中的值                         | 	func | 无           |
