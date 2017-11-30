@@ -1,8 +1,12 @@
-.bfd-checkbox-group {
-    .bfd-checkbox {
-        margin-right: 20px;
-    }
-    .bfd-checkbox--block {
-        margin-right: 0;
-    }
+@import "../../node_modules/cefc-ui-style/src/mixins/utils.less";
+@import "../../@{theme}";
+@checkboxgroupPrefixCls: cefc-checkbox-group;
+@checkboxPrefixCls: cefc-checkbox;
+.@{checkboxgroupPrefixCls} {
+  .@{checkboxPrefixCls} {
+    margin-right: 20px;
+  }
+  .@{checkboxPrefixCls}--block {
+    margin-right: 0;
+  }
 }

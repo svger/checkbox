@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from "react";
 import classnames from "classnames";
 import Checkbox from "./Checkbox";
 import "./style/index.less";
+const defaultPrefixCls = "cefc-checkbox-group";
 
 class CheckboxGroup extends Component {
   constructor(props) {
@@ -29,7 +30,6 @@ class CheckboxGroup extends Component {
 
   arrayRemoveByValue(arr, val) {
     for (var i = 0; i < arr.length; i++) {
-
       if (arr[i] == val) {
         arr.splice(i, 1);
         break;
@@ -50,8 +50,7 @@ class CheckboxGroup extends Component {
       this.arrayRemoveByValue(state, value);
     }
 
-     console.log("change-state", state);
-
+    console.log("change-state", state);
 
     this.setState({ selects: state });
     this.props.onChange && this.props.onChange(state);
@@ -86,6 +85,7 @@ class CheckboxGroup extends Component {
       block,
       toggleable,
       toggleAllContent,
+      prefixCls,
       ...other
     } = this.props;
     const { selects } = this.state;
@@ -135,7 +135,7 @@ class CheckboxGroup extends Component {
     this.unSelects = unSelects;
 
     return (
-      <div className={classnames("bfd-checkbox-group", className)} {...other}>
+      <div className={classnames(prefixCls, className)} {...other}>
         {toggleable &&
           checkboxes &&
           checkboxes.length > 1 && (
@@ -157,31 +157,19 @@ class CheckboxGroup extends Component {
 }
 
 CheckboxGroup.defaultProps = {
-  toggleAllContent: "全选"
+  toggleAllContent: "全选",
+  prefixCls: defaultPrefixCls
 };
 
 CheckboxGroup.propTypes = {
-  // 选中的值
-  selects: PropTypes.array,
-
-  // 初始选中的值（不可控）
-  defaultSelects: PropTypes.array,
-
-  // 更改选择后的回调，参数为选中的值
-  onChange: PropTypes.func,
-
-  // 针对 value 和 label 相同时快速创建复选框组，无需再调用 Checkbox
-  values: PropTypes.array,
-
-  // 是否垂直排列
-  block: PropTypes.bool,
-
-  // 是否开启全选功能
-  toggleable: PropTypes.bool,
-
-  // 全选切换复选框显示的文字
-  toggleAllContent: PropTypes.string,
-
+  selects: PropTypes.array, // 选中的值
+  defaultSelects: PropTypes.array, // 初始选中的值（不可控）
+  onChange: PropTypes.func, // 更改选择后的回调，参数为选中的值
+  values: PropTypes.array, // 针对 value 和 label 相同时快速创建复选框组，无需再调用 Checkbox
+  block: PropTypes.bool, // 是否垂直排列
+  toggleable: PropTypes.bool, // 是否开启全选功能
+  toggleAllContent: PropTypes.string, // 全选切换复选框显示的文字
+  prefixCls: PropTypes.string,
   customProp({ selects, onChange }) {
     if (selects && !onChange) {
       return new Error(
@@ -190,8 +178,5 @@ CheckboxGroup.propTypes = {
     }
   }
 };
-
-
 export { Checkbox };
-
 export default CheckboxGroup;

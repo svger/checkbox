@@ -1,13 +1,13 @@
 @import "../../node_modules/cefc-ui-style/src/mixins/utils.less";
 @import "../../@{theme}";
-@toastPrefixCls: cefc-checkbox;
+@checkboxPrefixCls: cefc-checkbox;
 @primary-color-light: #cfeeff;
 @primary-color: #27b3fe;
 @primary-color-deep: #19afff;
 @primary-color-deeper: #00a6ff;
 @success-color: #4cd964;
 @danger-color: #f94242;
-.bfd-checkbox {
+.@{checkboxPrefixCls} {
     display: inline-block;
     vertical-align: middle;
     min-height: 16px;
@@ -17,45 +17,47 @@
     position: relative;
     margin-bottom: 0;
     cursor: pointer;
+
     &:hover {
         color: @primary-color-deep;
-        .bfd-checkbox__status {
+        .@{checkboxPrefixCls}__status {
             &:before {
                 border-color: @primary-color-deep;
             }
         }
     }
+    
     &:focus {
         outline: none;
-        .bfd-checkbox__status {
+        .@{checkboxPrefixCls}__status {
             &:before {
                 border-color: @primary-color;
             }
         }
-        .bfd-checkbox__text {
+        .@{checkboxPrefixCls}__text {
             color: @primary-color;
         }
     }
 }
 
-.bfd-checkbox__input {
+.@{checkboxPrefixCls}__input {
     display: none;
     &:checked {
-        +.bfd-checkbox__status {
+        +.@{checkboxPrefixCls}__status {
             &:before {
                 border-color: @primary-color-deep;
             }
             &:after {
                 display: block;
             }
-            +.bfd-checkbox__text {
+            +.@{checkboxPrefixCls}__text {
                 color: @primary-color-deep;
             }
         }
     }
 }
 
-.bfd-checkbox__status {
+.@{checkboxPrefixCls}__status {
     pointer-events: none;
     &:before,
     &:after {
@@ -88,24 +90,24 @@
     }
 }
 
-.bfd-checkbox__text {
+.@{checkboxPrefixCls}__text {
     pointer-events: none;
     margin-left: 7px;
 }
 
-.bfd-checkbox--disabled {
+.@{checkboxPrefixCls}--disabled {
     cursor: not-allowed;
-    .bfd-checkbox__status {
+    .@{checkboxPrefixCls}__status {
         &:before,
         &:after {
             border-color: #eceff1!important;
         }
     }
-    .bfd-checkbox__text {
+    .@{checkboxPrefixCls}__text {
         color: #999!important;
     }
-    &.bfd-checkbox--indeterminate {
-        .bfd-checkbox__status {
+    &.@{checkboxPrefixCls}--indeterminate {
+        .@{checkboxPrefixCls}__status {
             &:after {
                 background-color: #eceff1;
             }
@@ -113,12 +115,12 @@
     }
 }
 
-.bfd-checkbox--block {
+.@{checkboxPrefixCls}--block {
     display: block;
 }
 
-.bfd-checkbox--indeterminate {
-    .bfd-checkbox__status {
+.@{checkboxPrefixCls}--indeterminate {
+    .@{checkboxPrefixCls}__status {
         &:before {
             border-color: @primary-color-deep;
         }
@@ -133,7 +135,7 @@
             background-color: @primary-color-deep;
         }
     }
-    .bfd-checkbox__text {
+    .@{checkboxPrefixCls}__text {
         color: @primary-color-deep;
     }
 }
