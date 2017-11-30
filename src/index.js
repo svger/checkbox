@@ -191,4 +191,7 @@ CheckboxGroup.propTypes = {
   }
 };
 
+
+export { Checkbox };
+
 export default CheckboxGroup;

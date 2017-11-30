@@ -1,6 +1,5 @@
 import React from "react";
-import CheckboxGroup from "../src/index";
-import Checkbox from "../src/CheckBox";
+import CheckboxGroup, { Checkbox } from "../src/index";
 
 class App extends React.Component {
   constructor(props) {
@@ -14,11 +13,7 @@ class App extends React.Component {
     let { checked } = this.state;
 
     return <div style={{ height: "800px" }}>
-        <CheckboxGroup toggleable>
-          <Checkbox value="apple">苹果</Checkbox>
-          <Checkbox value="samsung">三星</Checkbox>
-          <Checkbox value="mi">小米</Checkbox>
-        </CheckboxGroup>
+        <CheckboxGroup values={["苹果", "三星", "小米"]} />
       </div>;
   }
 }
