@@ -1,7 +1,8 @@
-import React, { PropTypes } from "react";
+import React from "react";
 import classnames from "classnames";
 import "./style/CheckBox.less";
 const defaultPrefixCls = "cefc-checkbox";
+import PropTypes from "prop-types";
 
 const Checkbox = props => {
   const {

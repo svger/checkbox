@@ -1,8 +1,9 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 import classnames from "classnames";
 import Checkbox from "./Checkbox";
 import "./style/index.less";
 const defaultPrefixCls = "cefc-checkbox-group";
+import PropTypes from "prop-types";
 
 class CheckboxGroup extends Component {
   constructor(props) {
